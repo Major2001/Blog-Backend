@@ -5,11 +5,11 @@ const authController = require('../controllers/authController');
 const router = express.Router();
 router
   .route('/:id')
-  .get(authController.protect, blogController.getBlog)
+  .get(blogController.getBlog)
   .patch(authController.protect, blogController.updateBlog);
 router
   .route('/')
-  .get(authController.protect, blogController.getAllBlogs)
+  .get(blogController.getAllBlogs)
   .post(authController.protect, blogController.addBlog);
 
 module.exports = router;
