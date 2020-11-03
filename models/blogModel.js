@@ -1,28 +1,23 @@
 const mongoose = require('mongoose');
 
 exports.blogSchema = new mongoose.Schema({
-  description: {
+  title: {
     type: String,
-    trim: true,
-    required: [true, 'A cycle must have a description'],
-    minlength: 20,
+    minlength: [2, 'Title is too Short'],
+    required: [true, 'Blog must have a title'],
   },
-  model: {
+  body: {
     type: String,
-    trim: true,
+    minlength: [5, 'Blog is too short'],
+    required: [true, 'Blog must have a body'],
   },
-  condition: {
-    type: String,
-    trim: true,
-    required: true,
-    enum: {
-      values: ['bad', 'good', 'excellent'],
-      message: 'Condition can only be good, excellent or bad',
-    },
+  likes: {
+    type: Number,
+    default: 0,
   },
-  available: {
-    type: Boolean,
-    default: true,
+  dislikes: {
+    type: Number,
+    default: 0,
   },
 });
 
