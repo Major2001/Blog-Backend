@@ -19,6 +19,10 @@ exports.blogSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now().toString(),
+  },
 });
 
 exports.Blog = mongoose.model('Blog', this.blogSchema);
