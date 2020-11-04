@@ -23,6 +23,9 @@ exports.blogSchema = new mongoose.Schema({
     type: Date,
     default: Date.now().toString(),
   },
+  image: {
+    type: String,
+  },
 });
 
 exports.Blog = mongoose.model('Blog', this.blogSchema);
